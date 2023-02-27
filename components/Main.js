@@ -76,23 +76,19 @@ export default function Main() {
           te lo gestionamos todo nosotros
         </h2>
         <div className="ml-6 text-center">
-          <a
-            className="inline-flex items-center py-3 rounded-xl font-semibold text-black transition duration-500 ease-in-out transform bg-transparent bg-white px-7 text-md md:mt-0 hover:text-black hover:bg-white focus:shadow-outline"
-            href="/"
-          >
-            <div className="flex text-lg">
-              <span className="justify-center">Contácto</span>
-            </div>
-          </a>
-          <a
-            className="inline-flex items-center py-3 rounded-xl font-semibold tracking-tighter text-white transition duration-500 ease-in-out transform bg-transparent ml-11 bg-gradient-to-r from-blue-500 to-blue-800 px-14 text-md md:mt-0 focus:shadow-outline"
-            href="/"
-          >
-            <div className="flex text-lg">
-              <span className="justify-center">
-                FAQ
-              </span>
-            </div>
+          <Link to="C" smooth={true} duration={1000}>
+            <a className="inline-flex cursor-pointer items-center py-3 rounded-xl font-semibold text-black transition duration-500 ease-in-out transform bg-transparent bg-white px-7 text-md md:mt-0 hover:text-black hover:bg-white focus:shadow-outline">
+              <div className="flex text-lg">
+                <span className="justify-center">Contáctanos</span>
+              </div>
+            </a>
+          </Link>
+          <a className="inline-flex cursor-pointer items-center py-3 rounded-xl font-semibold tracking-tighter text-white transition duration-500 ease-in-out transform bg-transparent ml-11 bg-gradient-to-r from-blue-500 to-blue-800 px-14 text-md md:mt-0 focus:shadow-outline">
+            <Link to="B" smooth={true} duration={1000}>
+              <div className="flex text-lg">
+                <span className="justify-center">FAQ</span>
+              </div>
+            </Link>
           </a>
         </div>
       </div>
@@ -103,7 +99,10 @@ export default function Main() {
           src="./images/Onlygrowth.png"
         ></img>
       </div>
-      <h2 id="A"  className="pt-40 mb-1 text-2xl font-semibold tracking-tighter text-center text-gray-200 lg:text-7xl md:text-6xl">
+      <h2
+        id="A"
+        className="pt-40 mb-1 text-2xl font-semibold tracking-tighter text-center text-gray-200 lg:text-7xl md:text-6xl"
+      >
         Nuestros Servicios
       </h2>
       <br></br>
@@ -116,7 +115,10 @@ export default function Main() {
         ))}
       </div>
 
-      <h2 id="B" className="pt-40 mb-1 text-2xl font-semibold tracking-tighter text-center text-gray-200 lg:text-7xl md:text-6xl">
+      <h2
+        id="B"
+        className="pt-40 mb-1 text-2xl font-semibold tracking-tighter text-center text-gray-200 lg:text-7xl md:text-6xl"
+      >
         Preguntas frecuentes
       </h2>
       <br></br>
@@ -151,7 +153,9 @@ export default function Main() {
               />
               <input
                 placeholder="Write your comment"
-                onChange={(text) => {setDescription(text.target.value)} }
+                onChange={(text) => {
+                  setDescription(text.target.value);
+                }}
                 class="border placeholder:-translate-y-6 border-gray-600 text-white h-44 w-2/4 mb-10 pr-2 pl-2 py-3 mt-2 rounded-md  font-semibold hover:border-gray-700 bg-black"
               />
             </div>
@@ -161,11 +165,14 @@ export default function Main() {
               onClick={() => {
                 if (email !== "" && instagram !== "") {
                   console.log(email, instagram);
-                  db().collection("Form").add({
-                    email: email,
-                    instagram: instagram,
-                    description: description,
-                  }).catch((e) => console.log(e));
+                  db()
+                    .collection("Form")
+                    .add({
+                      email: email,
+                      instagram: instagram,
+                      description: description,
+                    })
+                    .catch((e) => console.log(e));
                 }
               }}
             >
