@@ -37,7 +37,7 @@ export default function Main() {
 
   const faq = [
     {
-      title: "¿TENGO QUE PAGAR PARA SER MODELO ONLY AGENCIA?",
+      title: "¿TENGO QUE PAGAR PARA SER MODELO ONLYGROWTH?",
       description:
         "No es necesario hacer ningún pago para registrarse, ya que la inscripción es completamente gratuita. No obstante, se cobra una comisión mensual por nuestros servicios.",
       icon: "pregunta",
@@ -140,7 +140,7 @@ export default function Main() {
             </h1>
             <div className="items-center flex md:flex-row flex-col">
               {results.map((e) => (
-                <img src={`./images/${e.photo}.jpg`} className="h-1/4 w-52 md:m-20 mb-8 rounded-xl shadow"/>
+                <img src={`./images/${e.photo}.jpg`} className="h-1/4 w-72 md:m-10 mb-8 rounded-xl shadow"/>
               ))}
             </div>
 
