@@ -7,6 +7,7 @@ export default function Main() {
   const [email, setEmail] = useState("");
   const [instagram, setInstagram] = useState("");
   const [description, setDescription] = useState("");
+  const results = [{name: "", photo:"results1"},{name: "", photo:"results2"},{name: "", photo:"results3"},]
   const ourServicesInfo = [
     {
       title: "Privacidad Y Seguridad​",
@@ -44,7 +45,7 @@ export default function Main() {
     {
       title: "¿QUÉ TENDRÉ QUE HACER COMO MODELO?",
       description:
-        "Solo tienes que mandarnos tu contenido de la semana. Es lo único que te pidamos. Del resto, nos encargamos nosotros.",
+        "Solo tienes que mandarnos tu contenido de la semana. Es lo único que te vamos a pedir. Del resto, nos encargamos nosotros.",
       icon: "pregunta",
     },
     {
@@ -56,7 +57,7 @@ export default function Main() {
     {
       title: "¿COMO ME PODEIS ASEGURAR RESULTADOS?",
       description:
-        "Somos expertos en digital marketing y gestión de OnlyFans desde más de do años. Ya probemos estrategias que si sabemos que funcionan y dan resultados. No obstante, nunca prometemos resultados a nuestros modelos, sino previsiones.",
+        "Durante más de dos años, hemos adquirido experiencia en el campo del marketing digital y la gestión de OnlyFans. Hemos probado diversas estrategias y sabemos cuáles son las que funcionan y brindan resultados exitosos. A pesar de esto, nunca prometemos resultados a nuestros modelos, solo hacemos previsiones basadas en nuestra experiencia y conocimientos.",
       icon: "pregunta",
     },
     {
@@ -128,7 +129,24 @@ export default function Main() {
           />
         ))}
       </div>
+      <section id="C" class="relative pb-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+          <div class="py-24 md:py-36">
+            <h1 class="mb-5 text-6xl font-bold text-white">
+              Resultados
+            </h1>
+            <h1 class="mb-9 text-2xl font-semibold text-gray-200">
+              Ten estos resultados con nosotros.
+            </h1>
+            <div className="items-center flex md:flex-row flex-col">
+              {results.map((e) => (
+                <img src={`./images/${e.photo}.jpg`} className="h-1/4 w-52 md:m-20 mb-8 rounded-xl shadow"/>
+              ))}
+            </div>
 
+          </div>
+        </div>
+      </section>
       <h2
         id="B"
         className="pt-40 mb-1 text-2xl font-semibold tracking-tighter text-center text-gray-200 lg:text-7xl md:text-6xl"
@@ -137,7 +155,7 @@ export default function Main() {
       </h2>
       <br></br>
       <p className="mx-auto text-xl text-center text-gray-300 font-normal leading-relaxed fs521 lg:w-2/3">
-        Privacidad, Gestión, Crecimiento, Ingresos
+        ¿Cómo trabajamos?
       </p>
       <div className="pt-12 pb-24 max-w-4xl mx-auto fsac4 md:px-1 px-3">
         {faq.map((service) => (
