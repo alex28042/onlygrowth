@@ -12,21 +12,25 @@ export default function Main() {
       title: "Privacidad Y Seguridad​",
       description:
         "Para nosotros es muy importante que estés a gusto por lo que podrás subir el contenido que tu elijas. Además, podremos bloquear el contenido a seguidores de tu país para mantener tu intimidad intacta.",
+      icon: "usuario",
     },
     {
       title: "Gestión De Cuenta",
       description:
         "Si ya tienes una cuenta de OnlyFans y otros redes, nos encargaremos de toda la gestión y de aumentar tu cartera de clientes. Si no tienes, nosotros nos encargaremos del proceso. ¡Solo tendrás que posar!",
+      icon: "histograma",
     },
     {
       title: "Community Management",
       description:
         "Gestionamos tu cuenta para que ahorres tiempo y energía. Entendemos que a veces no apetece responder a los mensajes de tus fans. Lo haremos por ti para tenerlos 100% satisfechos.",
+      icon: "comunidad",
     },
     {
       title: "Estratégia marketing",
       description:
         "Te elaboramos una estrategia completa y personalizada para llevar tu actividad de la mejor forma que sea. Gracias a nuestra experiencia, podemos comprometernos a que empieces a tener resultados en menos de 1 mes.",
+      icon: "marketing",
     },
   ];
 
@@ -35,31 +39,37 @@ export default function Main() {
       title: "¿TENGO QUE PAGAR PARA SER MODELO ONLY AGENCIA?",
       description:
         "No es necesario hacer ningún pago para registrarse, ya que la inscripción es completamente gratuita. No obstante, se cobra una comisión mensual por nuestros servicios.",
+      icon: "pregunta",
     },
     {
       title: "¿QUÉ TENDRÉ QUE HACER COMO MODELO?",
       description:
         "Solo tienes que mandarnos tu contenido de la semana. Es lo único que te pidamos. Del resto, nos encargamos nosotros.",
+      icon: "pregunta",
     },
     {
       title: "¿CUANTO PUEDO GANAR AL MES?",
       description:
         "En términos generales, nuestras modelos ganan alrededor de 2600€ cada mes. Si estás empezando desde cero, podrías ganar entre 500€ y 1200€ durante los primeros tres meses, dependiendo del tipo de contenido que decidas publicar, tu disponibilidad y cuánto te comprometas.",
+      icon: "pregunta",
     },
     {
       title: "¿COMO ME PODEIS ASEGURAR RESULTADOS?",
       description:
         "Somos expertos en digital marketing y gestión de OnlyFans desde más de do años. Ya probemos estrategias que si sabemos que funcionan y dan resultados. No obstante, nunca prometemos resultados a nuestros modelos, sino previsiones.",
+      icon: "pregunta",
     },
     {
       title: "¿OS ENCARGAÍS DE LAS REDES SOCIALES?",
       description:
         "Obviamente. Nos encargamos de todo, incluido la gestión de tus redes sociales. Si no tienes perfiles sociales, nos encargaremos de creártelos.",
+      icon: "pregunta",
     },
     {
       title: "¿TENGO QUE TRABAJAR CON MI NOMBRE?",
       description:
         "No, de hecho te recomendamos que te busques un alias facil de escribir y recordar, y que hagamos de ese alias tu marca personal. Eso ayudará siempre a mantener tu privacidad, asi como otras indicaciones y recomendaciones que te diremos si finalmente trabajamos juntos y te preocupan estos temas.",
+      icon: "pregunta",
     },
   ];
 
@@ -76,19 +86,19 @@ export default function Main() {
           te lo gestionamos todo nosotros
         </h2>
         <div className="ml-6 text-center">
-          <Link to="C" smooth={true} duration={1000}>
-            <a className="inline-flex cursor-pointer items-center py-3 rounded-xl font-semibold text-black transition duration-500 ease-in-out transform bg-transparent bg-white px-7 text-md md:mt-0 hover:text-black hover:bg-white focus:shadow-outline">
-              <div className="flex text-lg">
+          <a className="inline-flex cursor-pointer items-center py-3 rounded-xl font-semibold text-black transition duration-500 ease-in-out transform bg-transparent bg-white px-7 text-md md:mt-0 hover:text-black hover:bg-white focus:shadow-outline">
+            <div className="flex text-lg">
+              <Link to="C" smooth={true} duration={1000}>
                 <span className="justify-center">Contáctanos</span>
-              </div>
-            </a>
-          </Link>
+              </Link>
+            </div>
+          </a>
           <a className="inline-flex cursor-pointer items-center py-3 rounded-xl font-semibold tracking-tighter text-white transition duration-500 ease-in-out transform bg-transparent ml-11 bg-gradient-to-r from-blue-500 to-blue-800 px-14 text-md md:mt-0 focus:shadow-outline">
-            <Link to="B" smooth={true} duration={1000}>
-              <div className="flex text-lg">
+            <div className="flex text-lg">
+              <Link to="B" smooth={true} duration={1000}>
                 <span className="justify-center">FAQ</span>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </a>
         </div>
       </div>
@@ -111,7 +121,11 @@ export default function Main() {
       </p>
       <div className="pt-12 pb-24 max-w-4xl mx-auto fsac4 md:px-1 px-3">
         {ourServicesInfo.map((service) => (
-          <Card title={service.title} description={service.description} />
+          <Card
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+          />
         ))}
       </div>
 
@@ -127,7 +141,11 @@ export default function Main() {
       </p>
       <div className="pt-12 pb-24 max-w-4xl mx-auto fsac4 md:px-1 px-3">
         {faq.map((service) => (
-          <Card title={service.title} description={service.description} />
+          <Card
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+          />
         ))}
       </div>
 
@@ -156,12 +174,12 @@ export default function Main() {
                 onChange={(text) => {
                   setDescription(text.target.value);
                 }}
-                class="border placeholder:-translate-y-6 border-gray-600 text-white h-44 w-2/4 mb-10 pr-2 pl-2 py-3 mt-2 rounded-md  font-semibold hover:border-gray-700 bg-black"
+                class="border text-left align-top border-gray-600 text-white h-44 w-2/4 mb-10 pr-2 pl-2 py-3 mt-2 rounded-md  font-semibold hover:border-gray-700 bg-black"
               />
             </div>
 
             <a
-              class="inline-flex items-center px-14 py-3 mt-2 ml-2 font-medium text-black transition duration-500 ease-in-out transform bg-transparent border rounded-lg bg-white"
+              class="inline-flex cursor-pointer items-center px-14 py-3 mt-2 ml-2 font-medium text-black transition duration-500 ease-in-out transform bg-transparent border rounded-lg bg-white"
               onClick={() => {
                 if (email !== "" && instagram !== "") {
                   console.log(email, instagram);
