@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { db } from "../firebaseconfig";
 import Card from "./Card";
@@ -7,7 +7,13 @@ export default function Main() {
   const [email, setEmail] = useState("");
   const [instagram, setInstagram] = useState("");
   const [description, setDescription] = useState("");
-  const results = [{name: "", photo:"results1"},{name: "", photo:"results2"},{name: "", photo:"results3"},]
+  const [messageSent, setMessageSent] = useState(false);
+  const [sizeOfDb, setSizeOfDb] = useState();
+  const results = [
+    { name: "", photo: "results1" },
+    { name: "", photo: "results2" },
+    { name: "", photo: "results3" },
+  ];
   const ourServicesInfo = [
     {
       title: "Privacidad Y Seguridad​",
@@ -74,6 +80,21 @@ export default function Main() {
     },
   ];
 
+  const sizeOfDbisMoreThan100 = () => {
+    db()
+      .collection("Form")
+      .get()
+      .then((q) => {
+        setSizeOfDb(q.size());
+      });
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMessageSent(false);
+    }, 2000);
+  }, [messageSent]);
+
   return (
     <section class="text-gray-600 body-font">
       <div class="max-w-5xl pt-52 pb-24 mx-auto">
@@ -132,18 +153,18 @@ export default function Main() {
       <section id="C" class="relative pb-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <div class="py-24 md:py-36">
-            <h1 class="mb-5 text-6xl font-bold text-white">
-              Resultados
-            </h1>
+            <h1 class="mb-5 text-6xl font-bold text-white">Resultados</h1>
             <h1 class="mb-9 text-2xl font-semibold text-gray-200">
               Ten estos resultados con nosotros.
             </h1>
             <div className="items-center flex md:flex-row flex-col">
               {results.map((e) => (
-                <img src={`./images/${e.photo}.jpg`} className="h-1/4 w-72 md:m-10 mb-8 rounded-xl shadow"/>
+                <img
+                  src={`./images/${e.photo}.jpg`}
+                  className="h-1/4 w-72 md:m-10 mb-8 rounded-xl shadow"
+                />
               ))}
             </div>
-
           </div>
         </div>
       </section>
@@ -199,21 +220,27 @@ export default function Main() {
             <a
               class="inline-flex cursor-pointer items-center px-14 py-3 mt-2 ml-2 font-medium text-black transition duration-500 ease-in-out transform bg-transparent border rounded-lg bg-white"
               onClick={() => {
-                if (email !== "" && instagram !== "") {
-                  console.log(email, instagram);
-                  db()
-                    .collection("Form")
-                    .add({
-                      email: email,
-                      instagram: instagram,
-                      description: description,
-                    })
-                    .catch((e) => console.log(e));
-                }
+                if (email === "" && instagram === "") return;
+
+                
+                db()
+                  .collection("Form")
+                  .add({
+                    email: email,
+                    instagram: instagram,
+                    description: description,
+                  })
+                  .then(() => setMessageSent(true))
+                  .catch((e) => console.log(e));
               }}
             >
               <span class="justify-center">Enviar</span>
             </a>
+            {messageSent ? (
+              <p className="font-bold mt-6 text-white">Contácto enviado</p>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </section>
