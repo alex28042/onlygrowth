@@ -151,7 +151,7 @@ export default function Main() {
           />
         ))}
       </div>
-      <section id="C" class="relative pb-24">
+      <section class="relative pb-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <div class="py-24 md:py-36">
             <h1 class="mb-5 text-6xl font-bold text-white">Resultados</h1>
@@ -202,19 +202,19 @@ export default function Main() {
               <input
                 placeholder="jack@example.com"
                 onChange={(text) => setEmail(text.target.value)}
-                class="border border-gray-600 text-white w-2/4 pr-2 pl-2 py-3 mt-2 rounded-md  font-semibold hover:border-gray-700 bg-black"
+                class="border border-gray-600 text-white w-3/4 pr-2 pl-2 py-3 mt-2 rounded-md md:w-2/4  font-semibold hover:border-gray-700 bg-black"
               />
               <input
                 placeholder="Instagram"
                 onChange={(text) => setInstagram(text.target.value)}
-                class="border border-gray-600 text-white w-2/4 pr-2 pl-2 py-3 mt-2 rounded-md  font-semibold hover:border-gray-700 bg-black"
+                class="border border-gray-600 text-white w-3/4 pr-2 pl-2 py-3 mt-2 rounded-md md:w-2/4 font-semibold hover:border-gray-700 bg-black"
               />
               <input
                 placeholder="Write your comment"
                 onChange={(text) => {
                   setDescription(text.target.value);
                 }}
-                class="border text-left align-top border-gray-600 text-white h-44 w-2/4 mb-10 pr-2 pl-2 py-3 mt-2 rounded-md  font-semibold hover:border-gray-700 bg-black"
+                class="border text-left align-top border-gray-600 text-white h-44 w-3/4 mb-10 md:w-2/4 pr-2 pl-2 py-3 mt-2 rounded-md  font-semibold hover:border-gray-700 bg-black"
               />
             </div>
 
