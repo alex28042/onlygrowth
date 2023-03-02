@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { db } from "../firebaseconfig";
 import Card from "./Card";
@@ -88,6 +88,7 @@ export default function Main() {
         setSizeOfDb(q.size());
       });
   };
+
 
   useEffect(() => {
     setTimeout(() => {
@@ -222,7 +223,11 @@ export default function Main() {
               onClick={() => {
                 if (email === "" && instagram === "") return;
 
-                
+                sizeOfDbisMoreThan100();
+
+
+                if (sizeOfDb > 100) return;
+
                 db()
                   .collection("Form")
                   .add({
