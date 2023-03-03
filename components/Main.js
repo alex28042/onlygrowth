@@ -8,6 +8,7 @@ export default function Main() {
   const [instagram, setInstagram] = useState("");
   const [description, setDescription] = useState("");
   const [messageSent, setMessageSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const [sizeOfDb, setSizeOfDb] = useState();
   const results = [
     { name: "", photo: "results1" },
@@ -89,12 +90,12 @@ export default function Main() {
       });
   };
 
-
   useEffect(() => {
     setTimeout(() => {
       setMessageSent(false);
+      setErrorMessage(false);
     }, 2000);
-  }, [messageSent]);
+  }, [messageSent, errorMessage]);
 
   return (
     <section class="text-gray-600 body-font">
@@ -221,10 +222,12 @@ export default function Main() {
             <a
               class="inline-flex cursor-pointer items-center px-14 py-3 mt-2 ml-2 font-medium text-black transition duration-500 ease-in-out transform bg-transparent border rounded-lg bg-white"
               onClick={() => {
-                if (email === "" && instagram === "") return;
+                if (email === "" || instagram === "") {
+                  setMessageSent(true);
+                  return;
+                }
 
                 sizeOfDbisMoreThan100();
-
 
                 if (sizeOfDb > 100) return;
 
@@ -236,13 +239,19 @@ export default function Main() {
                     description: description,
                   })
                   .then(() => setMessageSent(true))
-                  .catch((e) => console.log(e));
+                  .catch((e) => setErrorMessage(true));
               }}
             >
               <span class="justify-center">Enviar</span>
             </a>
             {messageSent ? (
               <p className="font-bold mt-6 text-white">Contácto enviado</p>
+            ) : errorMessage ? (
+              <>
+                <p className="font-bold mt-6 text-red-400">
+                  Rellena obligatoriamente tu instagram y tu correo
+                </p>
+              </>
             ) : (
               <></>
             )}
