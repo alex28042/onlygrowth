@@ -223,7 +223,7 @@ export default function Main() {
               class="inline-flex cursor-pointer items-center px-14 py-3 mt-2 ml-2 font-medium text-black transition duration-500 ease-in-out transform bg-transparent border rounded-lg bg-white"
               onClick={() => {
                 if (email === "" || instagram === "") {
-                  setMessageSent(true);
+                  setErrorMessage(true);
                   return;
                 }
 
